@@ -18,13 +18,28 @@ h1 {
   margin-top: 100px;
   
 }
-#image-product{
-  width: 300px;
+.img-section{
   background-color: rgb(248, 242, 234);
   border-radius: 8px;
-  text-align: center;
   padding-top: 24px;
   margin-bottom: 12px;
+  text-align: left;
+}
+#img-product{
+  width: 300px;
+  text-align: center;
+  
+}
+.img-label{
+  margin: 12px;
+  border: 1px solid black;
+  border-radius: 50px;
+  display: inline;
+  padding: 6px 12px;
+  background-color: rgb(17, 39, 53);
+  color: #f7faf5;
+  
+
 }
 .buynow-btn{
   padding: 12px 22px;
