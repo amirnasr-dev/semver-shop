@@ -377,10 +377,13 @@ h1 {
 }
 
 .img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: rgb(248, 242, 234);
   border-radius: 8px;
-  padding-top: 14px;
-  padding-bottom: 8px;
+  padding-top: 24px;
+  padding-bottom: 24px;
   margin-bottom: 12px;
   text-align: center;
 }
@@ -422,6 +425,11 @@ h1 {
   align-items: center;
 }
 
+.product-unit{
+  font-family: iranyekan;
+  font-size: 14px;
+}
+
 .price-label {
   font-family: iranyekan;
   font-size: 14px;
@@ -443,8 +451,8 @@ p {
 .product-description {
   margin-top: 12px;
   margin-bottom: 12px;
-  font-size: 10px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
   font-family: iranyekan;
 }
 
