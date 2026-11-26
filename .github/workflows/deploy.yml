@@ -45,12 +45,23 @@ jobs:
         run: docker build -t semver-shop .
       - name: Check the storefront and API inside Docker
         run: |
-          docker run --detach --rm --name semver-shop --publish 127.0.0.1:8080:80 semver-shop
-          trap 'docker stop semver-shop >/dev/null 2>&1 || true' EXIT
+          docker run --detach --name semver-shop --publish 127.0.0.1:8080:80 semver-shop
+          cleanup() {
+            if (( $? != 0 )); then
+              docker logs semver-shop || true
+            fi
+            docker rm --force semver-shop >/dev/null
+          }
+          trap cleanup EXIT
 
-          curl --fail --silent --show-error --retry 5 --retry-connrefused --max-time 15 http://127.0.0.1:8080/ --output /tmp/semver-index.html
+          echo 'Wait for Nginx to serve the storefront'
+          curl --fail --silent --show-error --retry 10 --retry-all-errors --retry-delay 1 --max-time 5 http://127.0.0.1:8080/ --output /tmp/semver-index.html
+
+          echo 'Check the SPA fallback'
           curl --fail --silent --show-error --max-time 15 http://127.0.0.1:8080/check-spa-fallback --output /tmp/semver-fallback.html
           cmp /tmp/semver-index.html /tmp/semver-fallback.html
+
+          echo 'Check the upstream products through the proxy'
           curl --fail --silent --show-error --max-time 15 http://127.0.0.1:8080/api/products.json | jq -e 'type == "array" and length > 0'
 
   deploy:
