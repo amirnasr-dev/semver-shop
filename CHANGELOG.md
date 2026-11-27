@@ -1,5 +1,13 @@
 # Nardone Changelog
 
+## [1.0.3] - 2026-11-27
+
+Restored Persian digits in Nardone prices after the rollback drill.
+
+### Fixed
+
+- Reverted the temporary price formatting change and restored the fa-IR locale.
+
 ## [1.0.2] - 2026-11-27
 
 Introduced a temporary price display regression for the Week 7 rollback drill.
