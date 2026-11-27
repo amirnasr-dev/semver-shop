@@ -1,1 +1,1 @@
-export const ciTypecheckDemo: number = "a";
+export const ciTypecheckDemo: number = 0;
