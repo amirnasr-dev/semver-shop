@@ -1,5 +1,5 @@
 export const formatPrice = (price: number): string => {
-  return new Intl.NumberFormat("fa-IR").format(price) + " تومان";
+  return new Intl.NumberFormat("en-US").format(price) + " تومان";
 };
 
 export const formatCount = (count: number): string => {
