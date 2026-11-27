@@ -1,5 +1,13 @@
 # Nardone Changelog
 
+## [1.0.2] - 2026-11-27
+
+Introduced a temporary price display regression for the Week 7 rollback drill.
+
+### Changed
+
+- Displayed prices use Latin digits during the drill. Numeric price values and cart totals follow the existing calculations.
+
 ## [1.0.1] - 2026-11-27
 
 Improved Nardone's mobile layout, promotional cards, and readability.
